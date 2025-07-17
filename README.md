@@ -5,7 +5,11 @@ Esse é um scrpit basicão de currículo online/portfólio que fiz com o chatGPT
 ← `README.md`: esse arquivo.
 
 ← `index.html`: main HTML.
+
 ← `encarceramento-feminino.html`: página de conteúdo do portfolio.
+
 ← `arepas-em-solo-brasileiro.html`: página de conteúdo do portfolio.
+
 ← `style.css
+
 ← `script.js`
