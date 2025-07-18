@@ -10,6 +10,8 @@ Esse é um scrpit basicão de currículo online/portfólio que fiz com o chatGPT
 
 ← `arepas-em-solo-brasileiro.html`: página de conteúdo do portfolio.
 
-← `style.css
+← `style.css`
 
 ← `script.js`
+
+← `objects`: pasta com images e docs utilizadas.
