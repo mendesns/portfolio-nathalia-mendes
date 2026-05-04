@@ -9,188 +9,412 @@ body {
   font-family: 'Baloo 2', sans-serif;
   display: flex;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #f9f6f1;
 }
-
 
 /* === SIDEBAR === */
 aside {
-  background-color: #ffffff;
-  border-right: 3px solid #96AD6B;
+  background-color: #B5460F;
+  border-right: 3px solid #8a3209;
   padding: 2rem;
   width: 350px;
   position: fixed;
   height: 100vh;
   text-align: center;
+  overflow-y: auto;
+
+  /* grade de pontos — referência tech/dados */
+  background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-color: #B5460F;
 }
 
 aside img {
   width: 65%;
-  border-radius: 1rem;
+  border-radius: 0.4rem;
   margin-bottom: 1rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  filter: sepia(10%) contrast(1.05);
 }
 
 aside h1 {
   font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: -0.02em;
 }
 
 aside .titulo {
-  font-size: 1.2rem;
+  font-size: 0.92rem;
   font-weight: 400;
   margin-bottom: 1rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.5;
+  font-style: italic;
 }
 
-aside p,
-aside a {
+aside p.aside-meta,
+aside p a {
   font-weight: 300;
-  color: #000;
+  color: rgba(255,255,255,0.8);
   text-decoration: none;
   display: block;
   margin-bottom: 0.2rem;
+  font-size: 0.95rem;
 }
 
 aside a:hover {
-  color: #918461;
+  color: #fff;
 }
 
-.metadata {
-  font-size: 1.1rem;
-  color: #333;
+/* === DIVISOR TECH === */
+aside::after {
+  content: '';
+  display: block;
 }
 
 /* === MENU DE NAVEGAÇÃO === */
 aside nav {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   display: flex;
   flex-direction: column;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1rem;
 }
 
 .nav-link {
-  font-size: 1rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  transition: 0.3s;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: 0.2s;
   background-color: transparent;
-  padding: 0.5rem;
+  padding: 0.45rem 0.5rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  text-align: left;
+  border-left: 2px solid transparent;
+}
+
+.nav-link::before {
+  content: '> ';
+  opacity: 0.5;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #96AD6B;
-}
-
-.nav-link:active {
-  color: #96AD6B;
-}
-
-/* === MAIN === */
-main {
-  margin-left: 400px;
-  margin-right:100px;
-  padding: 2rem;
-  flex: 1;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
-h2 {
-  font-size: 2rem;
-  color: #96AD6B;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #96AD6B;
-  display: inline-block;
-  padding-bottom: 0.1rem;
+  color: #fff;
+  border-left: 2px solid #fff;
+  padding-left: 0.9rem;
 }
 
 /* === BOTÃO DE DOWNLOAD === */
 .download-button {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.4rem 1rem;
-  border: 2px solid #96AD6B;
+  margin-top: 1.2rem;
+  padding: 0.45rem 1.2rem;
+  border: 2px solid rgba(255,255,255,0.6);
   background-color: transparent;
-  color: #000;
-  font-weight: bold;
-  border-radius: 8px;
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: background-color 0.3s ease;
-  font-size: 0.9rem;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, border-color 0.2s;
 }
 
 .download-button:hover {
-  background-color: #96AD6B;
-  color: #FFFFFF;
+  background-color: rgba(255,255,255,0.15);
+  border-color: #fff;
+}
+
+/* === MAIN === */
+main {
+  margin-left: 350px;
+  padding: 3rem 5rem 3rem 4rem;
+  flex: 1;
+  max-width: calc(100% - 350px);
+}
+
+section {
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed #ddd;
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+/* === TÍTULOS DE SEÇÃO === */
+h2 {
+  font-size: 1.6rem;
+  color: #B5460F;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid #B5460F;
+  display: inline-block;
+  padding-bottom: 0.15rem;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: -0.01em;
+}
+
+.section-prefix {
+  color: #8a3209;
+  opacity: 0.5;
+  font-size: 1.2rem;
+}
+
+.metadata {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.75;
+}
+
+.metadata a {
+  color: #B5460F;
+  text-decoration: none;
+  border-bottom: 1px solid #e8c4b3;
+  transition: border-color 0.2s;
+}
+
+.metadata a:hover {
+  border-color: #B5460F;
+}
+
+/* === PRÊMIOS === */
+.premio-card {
+  border: 1px solid #e8c4b3;
+  background: #fff;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid #B5460F;
+  border-radius: 0 6px 6px 0;
+  max-width: 680px;
+}
+
+.premio-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.premio-badge {
+  background: #B5460F;
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  text-transform: uppercase;
+}
+
+.premio-categoria {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: #888;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.premio-titulo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1C1A16;
+  margin-bottom: 0.5rem;
+}
+
+/* === EXPERIÊNCIA === */
+.exp-item {
+  margin-bottom: 1.75rem;
+  padding-left: 1rem;
+  border-left: 2px solid #e8c4b3;
+}
+
+.exp-item:last-child {
+  margin-bottom: 0;
+}
+
+.exp-periodo {
+  font-size: 0.85rem !important;
+  color: #B5460F !important;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.2rem;
+  font-family: 'Space Mono', monospace;
+}
+
+.exp-cargo {
+  font-size: 1.1rem !important;
+  margin-bottom: 0.4rem;
+}
+
+/* === COMPETÊNCIAS === */
+.competencias-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.competencia-grupo {
+  background: #fff;
+  border: 1px solid #e8c4b3;
+  border-top: 3px solid #B5460F;
+  padding: 1.1rem 1.25rem;
+}
+
+.comp-titulo {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: #B5460F;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.competencia-grupo ul {
+  list-style: none;
+  padding: 0;
+}
+
+.competencia-grupo ul li {
+  font-size: 0.95rem;
+  color: #333;
+  padding: 5px 0;
+  border-bottom: 1px solid #f0ebe3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.competencia-grupo ul li::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: #B5460F;
+  flex-shrink: 0;
+}
+
+.competencia-grupo ul li:last-child {
+  border-bottom: none;
 }
 
 /* === PORTFÓLIO === */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
   margin-top: 1rem;
 }
 
 .portfolio-block {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   text-decoration: none;
-  color: #000;
+  color: #1C1A16;
   background-color: #fff;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  height: 100%;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid #e2d9c8;
+  border-top: 3px solid #B5460F;
+  transition: transform 0.2s ease, border-color 0.2s;
 }
 
 .portfolio-block:hover {
-  transform: translateY(-5px);  
-  color: #918461;
+  transform: translateY(-3px);
+  border-color: #B5460F;
+  border-top-color: #8a3209;
 }
 
-.portfolio-thumb {
-  width: 100%;
-  height: 160px;
+/* topo do card: veículo + badge prêmio */
+.card-top {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
-.portfolio-thumb img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.card-veiculo {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  border: 1px solid #ddd;
+  padding: 2px 8px;
+}
+
+.card-premio {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #B5460F;
+  color: #fff;
+  padding: 2px 8px;
+}
+
+/* palavras-chave */
+.card-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 0.65rem;
+}
+
+.card-keywords span {
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #B5460F;
+  border: 1px solid #e8c4b3;
+  padding: 2px 8px;
 }
 
 .portfolio-block h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1C1A16;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
 }
 
-.portfolio-block p {
+.card-desc {
+  font-size: 0.92rem;
+  color: #666;
+  line-height: 1.65;
+  flex-grow: 1;
+  margin-bottom: 1rem;
   font-style: italic;
-  font-size: 1.05rem;
+}
+
+.card-cta {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #B5460F;
+  margin-top: auto;
+  border-top: 1px solid #f0ebe3;
+  padding-top: 0.75rem;
+  display: block;
 }
 
 /* === BOTÃO DE VOLTAR === */
 .botao-voltar {
-    color: #96AD6B;
-}
-
-.botao-voltar:active {
-  color: #918461;
+  color: #B5460F;
 }
 
 /* === RESPONSIVO === */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   body {
     flex-direction: column;
     overflow-x: hidden;
@@ -201,18 +425,21 @@ h2 {
     height: auto;
     position: relative;
     border-right: none;
-    border-bottom: 3px solid #96AD6B;
+    border-bottom: 3px solid #8a3209;
     padding: 1.5rem;
   }
 
   main {
     margin-left: 0;
-    margin-right: 0;
     padding: 1.5rem;
-    width: 100%;
+    max-width: 100%;
   }
 
   .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .competencias-grid {
     grid-template-columns: 1fr;
   }
 }
